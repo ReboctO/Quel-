@@ -10,11 +10,26 @@ import {
 
 const teamMembers = [
   {
-    name: "John Doe",
+    name: "Erl Cay",
     role: "CEO & Founder",
     image: "https://via.placeholder.com/150",
   },
   { name: "Jane Smith", role: "CTO", image: "https://via.placeholder.com/150" },
+  {
+    name: "Mike Johnson",
+    role: "Lead Developer",
+    image: "https://via.placeholder.com/150",
+  },
+  {
+    name: "Mike Johnson",
+    role: "Lead Developer",
+    image: "https://via.placeholder.com/150",
+  },
+  {
+    name: "Mike Johnson",
+    role: "Lead Developer",
+    image: "https://via.placeholder.com/150",
+  },
   {
     name: "Mike Johnson",
     role: "Lead Developer",
@@ -46,6 +61,18 @@ const AboutUs = () => {
             Our mission is to develop cutting-edge software solutions that
             empower businesses to achieve their goals efficiently and
             effectively.
+          </Typography>
+        </div>
+
+        {/* Vission Section */}
+        <div className="bg-white p-6 rounded-lg shadow-lg text-center mb-12">
+          <Typography variant="h4" className="font-semibold text-gray-800 mb-4">
+            Our Vission
+          </Typography>
+          <Typography variant="body1" className="text-gray-600">
+          We strive for nothing less than excellence. The skills and knowledge of our team set us apart. 
+          We take a distinctive approach to serving our clients. 
+          We envision a groundbreaking future for real estate.
           </Typography>
         </div>
 

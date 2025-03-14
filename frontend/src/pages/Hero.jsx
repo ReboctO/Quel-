@@ -30,7 +30,7 @@ function Hero() {
             is crafted to perfection.
           </Typography>
           <Box sx={{ display: "flex", gap: 2, mb: 4 }}>
-            <Box sx={{ width: 80, height: 60, backgroundColor: "gray" }} />
+            <Box sx={{ width: 80, height: 60, backgroundColor: "blue" }} />
             <Box sx={{ width: 80, height: 60, backgroundColor: "gray" }} />
             <Box sx={{ width: 80, height: 60, backgroundColor: "gray" }} />
             <Box sx={{ width: 80, height: 60, backgroundColor: "gray" }} />
