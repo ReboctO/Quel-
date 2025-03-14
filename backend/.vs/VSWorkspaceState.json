@@ -1,0 +1,15 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\Backend.Application",
+    "\\Backend.Application\\Services",
+    "\\Backend.Domain",
+    "\\Backend.Domain\\Entities",
+    "\\Backend.Infrastructure",
+    "\\Backend.Infrastructure\\Repositories",
+    "\\Backend.Persistence",
+    "\\Backend.Persistence\\Data"
+  ],
+  "SelectedNode": "\\Backend.Application",
+  "PreviewInSolutionExplorer": false
+}
