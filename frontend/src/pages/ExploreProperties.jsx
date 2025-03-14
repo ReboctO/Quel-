@@ -21,7 +21,6 @@ import house10 from "../assets/house10.jpg";
 import house11 from "../assets/house11.jpg";
 import house12 from "../assets/house12.jpg";
 
-
 const properties = [
   {
     name: "Sunrise Hills",
@@ -99,13 +98,19 @@ const properties = [
 
 const ExploreProperties = () => {
   return (
-    <div className="bg-gray-100 py-12">
+    <div className="bg-gray-100 py-16">
       <Container maxWidth="lg">
-        <div className="text-center mb-12">
-          <Typography variant="h3" className="font-bold text-gray-800 mb-4">
+        <div className="text-center mb-16">
+          <Typography
+            variant="h3"
+            sx={{ fontWeight: "bold", color: "gray.800", mb: 4 }}
+          >
             Explore Our Properties
           </Typography>
-          <Typography variant="h6" className="text-gray-600 max-w-2xl mx-auto">
+          <Typography
+            variant="h6"
+            sx={{ fontWeight: "bold", color: "gray.800", mb: 4 }}
+          >
             Discover premium home subdivisions designed for modern living. Find
             your dream home today.
           </Typography>
@@ -113,31 +118,36 @@ const ExploreProperties = () => {
 
         <Grid container spacing={4} justifyContent="center">
           {properties.map((property, index) => (
-            <Grid item key={index} xs={12} sm={6} md={4}>
-              <Card className="shadow-lg rounded-lg">
+            <Grid item key={index} xs={12} sm={6} md={4} lg={3}>
+              <Card className="transition-transform duration-300 hover:scale-105 shadow-xl rounded-lg">
                 <CardMedia
                   component="img"
                   height="200"
                   image={property.image}
                   alt={property.name}
+                  className="object-cover rounded-t-lg"
                 />
-                <CardContent className="text-center">
+                <CardContent className="text-center p-6">
                   <Typography
                     variant="h6"
-                    className="font-semibold text-gray-800"
+                    className="font-semibold text-gray-800 mb-2"
                   >
                     {property.name}
                   </Typography>
-                  <Typography variant="body2" className="text-gray-600 mt-1">
+                  <Typography variant="body2" className="text-gray-600 mb-2">
                     {property.location}
                   </Typography>
                   <Typography
                     variant="body1"
-                    className="font-semibold text-gray-800 mt-2"
+                    className="font-semibold text-gray-800 mb-4"
                   >
                     {property.price}
                   </Typography>
-                  <Button variant="contained" color="primary" className="mt-4">
+                  <Button
+                    variant="contained"
+                    color="primary"
+                    className="w-full py-2 text-white rounded-md shadow-md transition-all hover:bg-blue-700"
+                  >
                     View Details
                   </Button>
                 </CardContent>

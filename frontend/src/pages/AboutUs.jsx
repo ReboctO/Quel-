@@ -6,101 +6,152 @@ import {
   Typography,
   Container,
   Grid,
+  Box,
 } from "@mui/material";
-
+import hannahly from "../assets/hannahly.jpg";
+import jerome from "../assets/jerome.jpg";
+import erl from "../assets/erl.jpg";
+import charles from "../assets/charles.jpg";
+import mark from "../assets/mark.jpg";
+import anne from "../assets/anne.webp";
 const teamMembers = [
   {
     name: "Erl Cay",
     role: "CEO & Founder",
-    image: "https://via.placeholder.com/150",
+    image: erl,
   },
-  { name: "Jane Smith", role: "CTO", image: "https://via.placeholder.com/150" },
+  { name: "Anne Hathaway ", role: "CTO", image: anne },
   {
-    name: "Mike Johnson",
+    name: "Jerome Layese",
     role: "Lead Developer",
-    image: "https://via.placeholder.com/150",
-  },
-  {
-    name: "Mike Johnson",
-    role: "Lead Developer",
-    image: "https://via.placeholder.com/150",
+    image: jerome,
   },
   {
-    name: "Mike Johnson",
-    role: "Lead Developer",
-    image: "https://via.placeholder.com/150",
+    name: "Hannahly Dela Cruz",
+    role: "Marketing Head",
+    image: hannahly,
   },
   {
-    name: "Mike Johnson",
-    role: "Lead Developer",
-    image: "https://via.placeholder.com/150",
+    name: "Charles Andre Pammilar",
+    role: "Project Manager",
+    image: charles,
+  },
+  {
+    name: "Mark Lape ",
+    role: "Designer",
+    image: mark,
   },
 ];
 
 const AboutUs = () => {
   return (
-    <div className="bg-gray-100 py-12">
+    <Box sx={{ backgroundColor: "#f8f8f8", py: 12 }}>
       <Container maxWidth="lg">
         {/* Hero Section */}
-        <div className="text-center mb-12">
-          <Typography variant="h3" className="font-bold text-gray-800 mb-4">
+        <Box sx={{ textAlign: "center", mb: 12 }}>
+          <Typography
+            variant="h3"
+            sx={{ fontWeight: "bold", color: "#333", mb: 4 }}
+          >
             About Us
           </Typography>
-          <Typography variant="h6" className="text-gray-600 max-w-2xl mx-auto">
+          <Typography
+            variant="h6"
+            sx={{ color: "#555", maxWidth: 700, mx: "auto", lineHeight: 1.8 }}
+          >
             We are a passionate team dedicated to building innovative web
             solutions that transform businesses and enhance user experiences.
           </Typography>
-        </div>
+        </Box>
 
         {/* Mission Section */}
-        <div className="bg-white p-6 rounded-lg shadow-lg text-center mb-12">
-          <Typography variant="h4" className="font-semibold text-gray-800 mb-4">
+        <Box
+          sx={{
+            backgroundColor: "white",
+            p: 6,
+            borderRadius: 2,
+            boxShadow: 3,
+            textAlign: "center",
+            mb: 12,
+          }}
+        >
+          <Typography
+            variant="h4"
+            sx={{ fontWeight: "600", color: "#333", mb: 4 }}
+          >
             Our Mission
           </Typography>
-          <Typography variant="body1" className="text-gray-600">
+          <Typography variant="body1" sx={{ color: "#666", lineHeight: 1.6 }}>
             Our mission is to develop cutting-edge software solutions that
             empower businesses to achieve their goals efficiently and
             effectively.
           </Typography>
-        </div>
+        </Box>
 
-        {/* Vission Section */}
-        <div className="bg-white p-6 rounded-lg shadow-lg text-center mb-12">
-          <Typography variant="h4" className="font-semibold text-gray-800 mb-4">
-            Our Vission
+        {/* Vision Section */}
+        <Box
+          sx={{
+            backgroundColor: "white",
+            p: 6,
+            borderRadius: 2,
+            boxShadow: 3,
+            textAlign: "center",
+            mb: 12,
+          }}
+        >
+          <Typography
+            variant="h4"
+            sx={{ fontWeight: "600", color: "#333", mb: 4 }}
+          >
+            Our Vision
           </Typography>
-          <Typography variant="body1" className="text-gray-600">
-          We strive for nothing less than excellence. The skills and knowledge of our team set us apart. 
-          We take a distinctive approach to serving our clients. 
-          We envision a groundbreaking future for real estate.
+          <Typography variant="body1" sx={{ color: "#666", lineHeight: 1.6 }}>
+            We strive for nothing less than excellence. The skills and knowledge
+            of our team set us apart. We take a distinctive approach to serving
+            our clients. We envision a groundbreaking future for real estate.
           </Typography>
-        </div>
+        </Box>
 
         {/* Team Section */}
-        <div className="text-center mb-6">
-          <Typography variant="h4" className="font-semibold text-gray-800">
+        <Box sx={{ textAlign: "center", mb: 6 }}>
+          <Typography variant="h4" sx={{ fontWeight: "600", color: "#333" }}>
             Meet Our Team
           </Typography>
-        </div>
+        </Box>
 
         <Grid container spacing={4} justifyContent="center">
           {teamMembers.map((member, index) => (
             <Grid item key={index} xs={12} sm={6} md={4}>
-              <Card className="shadow-lg rounded-lg">
+              <Card
+                sx={{
+                  borderRadius: 2,
+                  boxShadow: 3,
+                  transition: "transform 0.3s, box-shadow 0.3s",
+                  "&:hover": {
+                    transform: "scale(1.05)",
+                    boxShadow: 6,
+                  },
+                }}
+              >
                 <CardMedia
                   component="img"
-                  height="140"
+                  height="200"
                   image={member.image}
                   alt={member.name}
+                  sx={{
+                    objectFit: "cover",
+                    borderTopLeftRadius: 2,
+                    borderTopRightRadius: 2,
+                  }}
                 />
-                <CardContent className="text-center">
+                <CardContent sx={{ textAlign: "center" }}>
                   <Typography
                     variant="h6"
-                    className="font-semibold text-gray-800"
+                    sx={{ fontWeight: "600", color: "#333" }}
                   >
                     {member.name}
                   </Typography>
-                  <Typography variant="body2" className="text-gray-600">
+                  <Typography variant="body2" sx={{ color: "#555", mb: 1 }}>
                     {member.role}
                   </Typography>
                 </CardContent>
@@ -109,7 +160,7 @@ const AboutUs = () => {
           ))}
         </Grid>
       </Container>
-    </div>
+    </Box>
   );
 };
 

@@ -19,13 +19,13 @@ function Navbar() {
           >
             Quel "
           </Typography>
+          <Button color="inherit" component={Link} to="/service">
+            Services
+          </Button>
           <Button color="inherit" component={Link} to="/aboutUs">
             About Us
           </Button>
-          <Button color="inherit" component={Link} to="/service">
-            Service
-          </Button>
-          <Button color="inherit">Pages</Button>
+
           <Button color="inherit" component={Link} to="/contactUs">
             Contact
           </Button>
