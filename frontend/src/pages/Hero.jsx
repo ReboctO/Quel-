@@ -1,14 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Box, Typography, Button } from '@mui/material';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import ExploreProperties from './ExploreProperties'; // Assuming ExploreProperties.jsx is in the same directory
 
 const itemsData = [
   { id: 1, imageUrl: '/hero01.jpg', name: 'Luxury Home 1', description: 'Stunning modern architecture.' },
   { id: 2, imageUrl: '/hero02.jpg', name: 'Elegant Villa', description: 'Experience refined living.' },
   { id: 3, imageUrl: '/hero03.jpg', name: 'Contemporary Residence', description: 'Stylish and spacious design.' },
   { id: 4, imageUrl: '/hero04.jpg', name: 'Modern Estate', description: 'Exceptional design and comfort.' },
-  { id: 5, imageUrl: '/hero05.jpg', name: 'Dream Home', description: 'Your perfect sanctuary awaits.' },
+  { id: 5, imageUrl: '/hero05.webp', name: 'Dream Home', description: 'Your perfect sanctuary awaits.' },
   // Add more image data here
 ];
 
@@ -16,16 +17,16 @@ function ImageSlider() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [containerBackground, setContainerBackground] = useState(`url('${itemsData[0].imageUrl}')`);
 
-  const goToPrevious = () => {
+  const goToPrevious = useCallback(() => {
     setCurrentIndex((prevIndex) => (prevIndex - 1 + itemsData.length) % itemsData.length);
     setContainerBackground(`url('${itemsData[(currentIndex - 1 + itemsData.length) % itemsData.length].imageUrl}')`);
-  };
+  }, [itemsData, currentIndex, setContainerBackground]);
 
-  const goToNext = () => {
+  const goToNext = useCallback(() => {
     const nextIndex = (currentIndex + 1) % itemsData.length;
     setCurrentIndex(nextIndex);
     setContainerBackground(`url('${itemsData[nextIndex].imageUrl}')`);
-  };
+  }, [itemsData, currentIndex, setContainerBackground]);
 
   useEffect(() => {
     const interval = setInterval(goToNext, 5000); // Auto slide every 5 seconds
@@ -33,8 +34,13 @@ function ImageSlider() {
   }, [goToNext]);
 
   return (
-    <div className="relative w-full h-[90vh] bg-gray-100 overflow-hidden bg-cover bg-center bg-no-repeat transition-background duration-500"
-      style={{ backgroundImage: containerBackground }}
+    <div
+      className="relative w-full h-[90vh] bg-gray-100 overflow-hidden bg-cover bg-center bg-no-repeat transition-background duration-500"
+      style={{
+        backgroundImage: containerBackground,
+        backgroundSize: '80% 80%',
+        backgroundPosition: 'center',
+      }}
     >
       <div className="absolute top-1/2 left-10 -translate-y-1/2 w-[400px] text-left text-white p-8 bg-black bg-opacity-50 rounded-md">
         <Typography variant="h4" className="text-4xl font-bold uppercase mb-2">
@@ -48,7 +54,7 @@ function ImageSlider() {
         </Button>
       </div>
 
-      <div className="absolute top-1/2 right-10 -translate-y-1/2 flex items-center"> {/* Removed justify-end */}
+      <div className="absolute top-1/2 right-10 -translate-y-1/2 flex items-center">
         <div className="relative w-[500px] h-[300px]">
           {itemsData.map((item, index) => {
             const offset = index - currentIndex;
@@ -141,8 +147,9 @@ function ImageSlider() {
 
 function Hero() {
   return (
-    <div className="bg-gray-200 min-h-screen flex justify-center items-center">
+    <div className="bg-gray-200 min-h-screen flex justify-center items-center flex-col">
       <ImageSlider />
+      <ExploreProperties />
     </div>
   );
 }
